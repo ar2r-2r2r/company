@@ -53,5 +53,17 @@
         <span class="span_dell">Enter salary</span> <input type="text" name="del_salary" ><br>
         <div class="btn"><button type="submit">Submit</button></div>
     </form>
+    <form class="form_red" action="red.php" method="post">
+        <span class="span_dell" id="info" >Redact info about employer</span><br>
+        <span class="span_dell">Enter first name</span> <input type="text" name="fname"><br>
+        <span class="span_dell">Enter new first name</span> <input type="text" name="red_fname"><br>
+        <span class="span_dell">Enter last name</span> <input type="text" name="lname" ><br>
+        <span class="span_dell">Enter new last name</span> <input type="text" name="red_lname" ><br>
+        <span class="span_dell">Enter date of birth</span> <input type="date" name="dob" ><br>
+        <span class="span_dell">Enter new date of birth</span> <input type="date" name="red_dob" ><br>
+        <span class="span_dell">Enter salary</span> <input type="text" name="salary" ><br>
+        <span class="span_dell">Enter new salary</span> <input type="text" name="red_salary" ><br>
+        <div class="btn"><button type="submit">Submit</button></div>
+    </form>
 </body>
 </html>
