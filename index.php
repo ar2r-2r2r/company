@@ -8,7 +8,14 @@
     <title>Redactor</title>
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th>id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>date of birth</th>
+            <th>salary</th>
+        </tr>
     <?php
     spl_autoload_register(function ($class_name) {
         include $class_name . '.php';
@@ -16,10 +23,19 @@
     $db=new Database;
     $result=$db->query("SELECT * FROM `employer`");
     foreach($result as $row=>$value){
-        echo $value['id']."=>".$value['firstName']."<br>";
+        ?><tr>
+        <td><?= $value['id'] ?></td>
+        <td><?= $value['firstName'] ?></td>
+        <td><?= $value['lastName'] ?></td>
+        <td><?= $value['dob'] ?></td>
+        <td><?= $value['salary'] ?></td>
+        </tr>
+        <?php 
     }
     
     ?>
+    </table>
+   
     <form class="form_add" action="add.php" method="post">
         Add info about new employee<br>
         Input First name <input type="text" name="add_fname"><br>

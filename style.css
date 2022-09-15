@@ -1,0 +1,9 @@
+table{
+    border-spacing: 0px;
+    width: 40vw;
+    float: right;
+}
+td,th{
+    border: 2px solid black;
+    
+}
