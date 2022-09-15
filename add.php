@@ -6,7 +6,7 @@ spl_autoload_register(function ($class_name) {
 $fname=$_POST['add_fname'];
 $lname=$_POST['add_lname'];
 $dob=$_POST['add_dob'];
-$salary=$_POST['add_salary'];
+$salary=settype($_POST['add_salary'], 'integer');
 // $employer=new Employer($fname,$lname,$dob,$salary);
 $db=new Database;
 $db->execute("INSERT INTO `employer` SET `firstName`='$fname', `lastName`='$lname', `dob`='$dob', `salary`='$salary'");

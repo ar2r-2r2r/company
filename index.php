@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    ini_set('display_errors', 0);                               //без него Warning: Undefined array key "orderby" in line 14,18,22,26,30,35...
+    ini_set('display_errors', 0); //без него Warning: Undefined array key "orderby" in line 14,18,...
     $order="asc";
     if($_GET['orderby']=="id" && $_GET['order']=="asc")
     {
@@ -45,7 +45,7 @@
   echo     "<tr>";
   echo"          <th><a href='?orderby=id&order=".$order."'>id</a></th>";
   echo"          <th><a href='?orderby=firstName&order=".$order."'>first name</a></th>";
-  echo"       <th><a href='?orderby=lastName&order=".$order."'>last name</a></th>";
+  echo"          <th><a href='?orderby=lastName&order=".$order."'>last name</a></th>";
   echo"          <th><a href='?orderby=dob&order=".$order."'>date of birth</a></th>";
   echo"          <th><a href='?orderby=salary&order=".$order."'>salary</a></th>";
   echo"      </tr>";
@@ -69,34 +69,37 @@
     
     ?>
     </table>
-   
     <form class="form_add" action="add.php" method="post">
         <span class="span_add" id="info" >Add info about employer to database</span><br>
-        <span class="span_add">Enter first name</span> <input type="text" name="add_fname"><br>
-        <span class="span_add">Enter last name</span> <input type="text" name="add_lname" ><br>
-        <span class="span_add">Enter date of birth</span> <input type="date" name="add_dob" ><br>
-        <span class="span_add">Enter salary</span> <input type="text" name="add_salary" ><br>
+        <span class="span_add">Enter first name</span> <input type="text" required name="add_fname"><br>
+        <span class="span_add">Enter last name</span> <input type="text" required name="add_lname" ><br>
+        <span class="span_add">Enter date of birth</span> <input type="date" min="1800-01-01" max="2022-10-01" 
+        required name="add_dob" ><br>
+        <span class="span_add">Enter salary</span> <input type="text" required name="add_salary" ><br>
         <div class="btn"><button type="submit">Submit</button></div>
     </form>
 
     <form class="form_del" action="del.php" method="post">
         <span class="span_dell" id="info" >Delete info about employer</span><br>
-        <span class="span_dell">Enter first name</span> <input type="text" name="del_fname"><br>
-        <span class="span_dell">Enter last name</span> <input type="text" name="del_lname" ><br>
-        <span class="span_dell">Enter date of birth</span> <input type="date" name="del_dob" ><br>
-        <span class="span_dell">Enter salary</span> <input type="text" name="del_salary" ><br>
+        <span class="span_dell">Enter first name</span> <input type="text" required name="del_fname"><br>
+        <span class="span_dell">Enter last name</span> <input type="text" required name="del_lname" ><br>
+        <span class="span_dell">Enter date of birth</span> <input type="date" min="1800-01-01" max="2022-10-01"
+         required  name="del_dob" ><br>
+        <span class="span_dell">Enter salary</span> <input type="text" required name="del_salary" ><br>
         <div class="btn"><button type="submit">Submit</button></div>
     </form>
     <form class="form_red" action="red.php" method="post">
         <span class="span_dell" id="info" >Redact info about employer</span><br>
-        <span class="span_dell">Enter first name</span> <input type="text" name="fname"><br>
-        <span class="span_dell">Enter new first name</span> <input type="text" name="red_fname"><br>
-        <span class="span_dell">Enter last name</span> <input type="text" name="lname" ><br>
-        <span class="span_dell">Enter new last name</span> <input type="text" name="red_lname" ><br>
-        <span class="span_dell">Enter date of birth</span> <input type="date" name="dob" ><br>
-        <span class="span_dell">Enter new date of birth</span> <input type="date" name="red_dob" ><br>
-        <span class="span_dell">Enter salary</span> <input type="text" name="salary" ><br>
-        <span class="span_dell">Enter new salary</span> <input type="text" name="red_salary" ><br>
+        <span class="span_dell">Enter first name</span> <input type="text" required name="fname"><br>
+        <span class="span_dell">Enter new first name</span> <input type="text" required name="red_fname"><br>
+        <span class="span_dell">Enter last name</span> <input type="text" required  name="lname" ><br>
+        <span class="span_dell">Enter new last name</span> <input type="text" required name="red_lname" ><br>
+        <span class="span_dell">Enter date of birth</span> <input type="date" min="1800-01-01" max="2022-10-01"
+         required name="dob" ><br>
+        <span class="span_dell">Enter new date of birth</span> <input type="date" min="1800-01-01" max="2022-10-01"
+         required  name="red_dob" ><br>
+        <span class="span_dell">Enter salary</span> <input type="text" required  name="salary" ><br>
+        <span class="span_dell">Enter new salary</span> <input type="text" required  name="red_salary" ><br>
         <div class="btn"><button type="submit">Submit</button></div>
     </form>
 </body>
