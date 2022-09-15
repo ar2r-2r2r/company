@@ -8,6 +8,10 @@
     <title>Redactor</title>
 </head>
 <body>
+    <?php
+    require_once 'database.php';
+    
+    ?>
     <form class="form_add" action="add.php" method="post">
         Add info about new employee<br>
         Input First name <input type="text" name="add_fname"><br>
