@@ -10,10 +10,10 @@
 <body>
     <form class="form_add" action="add.php" method="post">
         Add info about new employee<br>
-        Input First name <input type="text"><br>
-        Input Last name <input type="text"><br>
-        Input Date of Birth <input type="date"><br>
-        Salary <input type="text"><br>
+        Input First name <input type="text" name="add_fname"><br>
+        Input Last name <input type="text" name="add_lname" ><br>
+        Input Date of Birth <input type="date" name="add_dob" ><br>
+        Salary <input type="text" name="add_salary" ><br>
         <button>Submit</button>
     </form>
 </body>
