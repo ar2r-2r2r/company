@@ -8,8 +8,16 @@
     <title>Redactor</title>
 </head>
 <body>
+    
     <?php
-    require_once 'database.php';
+    spl_autoload_register(function ($class_name) {
+        include $class_name . '.php';
+    });
+    $db=new Database;
+    $result=$db->query("SELECT * FROM `employer`");
+    foreach($result as $row=>$value){
+        echo $value['id']."=>".$value['firstName']."<br>";
+    }
     
     ?>
     <form class="form_add" action="add.php" method="post">
@@ -20,5 +28,7 @@
         Salary <input type="text" name="add_salary" ><br>
         <button>Submit</button>
     </form>
+
+
 </body>
 </html>
