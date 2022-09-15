@@ -45,7 +45,7 @@
         <div class="btn"><button type="submit">Submit</button></div>
     </form>
 
-    <form class="form_del" action="add.php" method="post">
+    <form class="form_del" action="del.php" method="post">
         <span class="span_dell" id="info" >Delete info about employer</span><br>
         <span class="span_dell">Enter first name</span> <input type="text" name="del_fname"><br>
         <span class="span_dell">Enter last name</span> <input type="text" name="del_lname" ><br>
