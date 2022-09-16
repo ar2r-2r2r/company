@@ -9,71 +9,64 @@
 </head>
 <body>
     <?php
-    ini_set('display_errors', 0); //без него Warning: Undefined array key "orderby" in line 14,18,...
-    $order="asc";
-    if($_GET['orderby']=="id" && $_GET['order']=="asc")
-    {
-     $order="desc";
-    }
-    if($_GET['orderby']=="firstName" && $_GET['order']=="asc")
-    {
-     $order="desc";
-    }
-    if($_GET['orderby']=="lastname" && $_GET['order']=="asc")
-    {
-     $order="desc";
-    }
-    if($_GET['orderby']=="dob" && $_GET['order']=="asc")
-    {
-     $order="desc";
-    }
-    if($_GET['orderby']=="salary" && $_GET['order']=="asc")
-    {
-     $order="desc";
-    }
-    
-    if($_GET['orderby'])
-    {
-     $orderby="order by ".$_GET['orderby'];
-    }
-    if($_GET['order'])
-    {
-     $sort_order=$_GET['order'];
-    }
+ini_set('display_errors', 0); //без него Warning: Undefined array key "orderby" in line 14,18,...
+$order = "asc";
+if ($_GET['orderby'] == "id" && $_GET['order'] == "asc") {
+    $order = "desc";
+}
+if ($_GET['orderby'] == "firstName" && $_GET['order'] == "asc") {
+    $order = "desc";
+}
+if ($_GET['orderby'] == "lastname" && $_GET['order'] == "asc") {
+    $order = "desc";
+}
+if ($_GET['orderby'] == "dob" && $_GET['order'] == "asc") {
+    $order = "desc";
+}
+if ($_GET['orderby'] == "salary" && $_GET['order'] == "asc") {
+    $order = "desc";
+}
 
-  echo "<table>";
-  echo     "<tr>";
-  echo"          <th><a href='?orderby=id&order=".$order."'>id</a></th>";
-  echo"          <th><a href='?orderby=firstName&order=".$order."'>first name</a></th>";
-  echo"          <th><a href='?orderby=lastName&order=".$order."'>last name</a></th>";
-  echo"          <th><a href='?orderby=dob&order=".$order."'>date of birth</a></th>";
-  echo"          <th><a href='?orderby=salary&order=".$order."'>salary</a></th>";
-  echo"      </tr>";
-    
-    spl_autoload_register(function ($class_name) {
-        include $class_name . '.php';
-    });
-    $db=new Database;
-    $result=$db->query("SELECT * FROM `employer` ".$orderby." ".$sort_order."");
-    foreach($result as $row=>$value){
-        ?><tr>
-            
-        <td><?= $value['id'] ?></td>
-        <td><?= $value['firstName'] ?></td>
-        <td><?= $value['lastName'] ?></td>
-        <td><?= $value['dob'] ?></td>
-        <td><?= $value['salary'] ?></td>
+if ($_GET['orderby']) {
+    $orderby = "order by " . $_GET['orderby'];
+}
+if ($_GET['order']) {
+    $sort_order = $_GET['order'];
+}
+
+echo "<table>";
+echo "<tr>";
+echo "          <th><a href='?orderby=id&order=" . $order . "'>id</a></th>";
+echo "          <th><a href='?orderby=firstName&order=" . $order . "'>first name</a></th>";
+echo "          <th><a href='?orderby=lastName&order=" . $order . "'>last name</a></th>";
+echo "          <th><a href='?orderby=dob&order=" . $order . "'>date of birth</a></th>";
+echo "          <th><a href='?orderby=salary&order=" . $order . "'>salary</a></th>";
+echo "      </tr>";
+
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
+$db = new Database;
+$result = $db->query("SELECT * FROM `employer` " . $orderby . " " . $sort_order . "");
+foreach ($result as $row => $value) {
+    ?><tr>
+
+        <td><?=$value['id']?></td>
+        <td><?=$value['firstName']?></td>
+        <td><?=$value['lastName']?></td>
+        <td><?=$value['dob']?></td>
+        <td><?=$value['salary']?></td>
         </tr>
-        <?php 
-    }
-    
-    ?>
+        <?php
+}
+
+?>
     </table>
     <form class="form_add" action="add.php" method="post">
         <span class="span_add" id="info" >Add info about employer to database</span><br>
         <span class="span_add">Enter first name</span> <input type="text" required name="add_fname"><br>
         <span class="span_add">Enter last name</span> <input type="text" required name="add_lname" ><br>
-        <span class="span_add">Enter date of birth</span> <input type="date" min="1800-01-01" max="2022-10-01" 
+        <span class="span_add">Enter date of birth</span> <input type="date" min="1800-01-01" max="2022-10-01"
         required name="add_dob" ><br>
         <span class="span_add">Enter salary</span> <input type="text" required name="add_salary" ><br>
         <div class="btn"><button type="submit">Submit</button></div>

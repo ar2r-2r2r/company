@@ -1,29 +1,34 @@
 <?php
 
-class Employer{
+class Employer
+{
     private $fname;
     private $lname;
     private $dob;
     private $salary;
 
-    public function __construct($fname, $lname, $dob,$salary)
+    public function __construct($fname, $lname, $dob, $salary)
     {
-        $this->fname=$fname;
-        $this->lname=$lname;
-        $this->dob=$dob;
-        $this->salary=$salary;
+        $this->fname = $fname;
+        $this->lname = $lname;
+        $this->dob = $dob;
+        $this->salary = $salary;
     }
 
-    public function getFname(){
+    public function getFname()
+    {
         return $this->fname;
     }
-    public function getLname(){
+    public function getLname()
+    {
         return $this->lname;
     }
-    public function getDob(){
+    public function getDob()
+    {
         return $this->dob;
     }
-    public function getSalary(){
+    public function getSalary()
+    {
         return $this->salary;
     }
 }
